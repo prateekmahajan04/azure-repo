@@ -11,7 +11,7 @@ on:
 jobs:
   terraform:
     name: 'terraform init-plan-apply'
-    runs-on: azure-repo
+    runs-on: LAPTOP-4TIMG3M8
 
     steps:
     - name: Checkout
