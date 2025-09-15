@@ -34,21 +34,21 @@ jobs:
         subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
 
     - name: terraform init
-      working-directory: env/dev
+      working-directory: azure-repo/env/dev
       run: terraform init -upgrade
 
     # - name: terraform fmt
     #   working-directory: env/dev
     #   run: terraform fmt
 
-    - name: terraform validate
-      working-directory: env/dev
-      run: terraform validate
+    # - name: terraform validate
+    #   working-directory: env/dev
+    #   run: terraform validate
 
-    - name: terraform plan
-      working-directory: env/dev
-      run: terraform plan
+    # - name: terraform plan
+    #   working-directory: env/dev
+    #   run: terraform plan
 
-    - name: terraform apply
-      working-directory: env/dev
-      run: terraform apply --auto-approve
+    # - name: terraform apply
+    #   working-directory: env/dev
+    #   run: terraform apply --auto-approve
