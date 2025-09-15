@@ -34,7 +34,7 @@ jobs:
         subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
 
     - name: terraform init
-      working-directory: azure-repo\env\dev
+      working-directory: env\dev
       run: terraform init -upgrade
 
     # - name: terraform fmt
