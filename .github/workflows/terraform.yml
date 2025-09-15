@@ -37,9 +37,9 @@ jobs:
       working-directory: env/dev
       run: terraform init
 
-    - name: terraform fmt
-      working-directory: env/dev
-      run: terraform fmt
+    # - name: terraform fmt
+    #   working-directory: env/dev
+    #   run: terraform fmt
 
     - name: terraform validate
       working-directory: env/dev
