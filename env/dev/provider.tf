@@ -5,6 +5,14 @@ terraform {
       version = "4.44.0"
     }
   }
+
+
+  backend "azurerm" {
+    resource_group_name  = "prateektfstatebackend"
+    storage_account_name = "prateektfstatebackendstg"   # must be globally unique
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
