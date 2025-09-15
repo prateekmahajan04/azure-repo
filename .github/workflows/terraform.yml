@@ -35,7 +35,7 @@ jobs:
 
     - name: terraform init
       working-directory: env/dev
-      run: terraform init
+      run: terraform init -upgrade
 
     # - name: terraform fmt
     #   working-directory: env/dev
