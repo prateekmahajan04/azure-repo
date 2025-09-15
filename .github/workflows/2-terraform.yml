@@ -1,5 +1,9 @@
 name: Terraform simple deploy
 
+permissions:
+  id-token: write
+  contents: read
+  
 on:
   push:
     branches:
