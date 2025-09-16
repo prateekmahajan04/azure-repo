@@ -50,6 +50,7 @@ jobs:
     name: 'terraform init-plan on prod'
     runs-on: LAPTOP-4TIMG3M8
     if: github.event_name =='pull_request'
+    needs: terraform-apply-dev
 
     steps:
     - name: Checkout
@@ -111,9 +112,7 @@ jobs:
   terraform-apply-prod:
     name: terraform apply prod
     runs-on: LAPTOP-4TIMG3M8
-    needs: 
-      - terraform-apply-dev
-      - terraform-init-plan-prod
+    needs: terraform-init-plan-prod
     environment: prod
     steps:
     - name: Checkout
