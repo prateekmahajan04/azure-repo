@@ -45,11 +45,45 @@ jobs:
     - name: terraform plan
       working-directory: env/dev
       run: terraform plan
+      
+  terraform-init-plan-prod:
+    name: 'terraform init-plan on prod'
+    runs-on: LAPTOP-4TIMG3M8
+    if: github.event_name =='pull_request'
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5.0.0
+    
+    - name: Install Terraform
+      uses: little-core-labs/install-terraform@v2.0.0
+      with:
+        version: latest
+        
+    - name: Azure Login
+      uses: Azure/login@v2.3.0
+      with:
+        client-id: ${{ secrets.APPLICATION_CLIENT_ID }}
+        tenant-id: ${{ secrets.DIRECTORY_TENANT_ID }}
+        subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+
+    - name: terraform init
+      working-directory: env/prod
+      run: terraform init 
+
+    - name: terraform validate
+      working-directory: env/prod
+      run: terraform validate
+
+    - name: terraform plan
+      working-directory: env/prod
+      run: terraform plan
 
   terraform-apply-dev:
     name: terraform apply dev
     runs-on: LAPTOP-4TIMG3M8
     if: github.event_name =='push' && github.ref == 'refs/heads/main'
+    needs: terraform-init-plan-dev
 
     steps:
     - name: Checkout
@@ -78,7 +112,9 @@ jobs:
   terraform-apply-prod:
     name: terraform apply prod
     runs-on: LAPTOP-4TIMG3M8
-    needs: terraform-apply-dev
+    needs: 
+      - terraform-apply-dev
+      - terraform-init-plan-prod
     environment: prod
     steps:
     - name: Checkout
