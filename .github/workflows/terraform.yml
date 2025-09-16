@@ -50,6 +50,7 @@ jobs:
     name: 'terraform init-plan on prod'
     runs-on: LAPTOP-4TIMG3M8
     if: github.event_name =='pull_request'
+    needs: terraform-init-plan-dev
 
     steps:
     - name: Checkout
