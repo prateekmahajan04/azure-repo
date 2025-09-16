@@ -83,6 +83,8 @@ jobs:
     name: terraform apply dev
     runs-on: LAPTOP-4TIMG3M8
     if: github.event_name =='push' && github.ref == 'refs/heads/main'
+    needs: terraform-init-plan-dev
+    environment: dev
 
     steps:
     - name: Checkout
