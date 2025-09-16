@@ -111,6 +111,8 @@ jobs:
   terraform-apply-prod:
     name: terraform apply prod
     runs-on: LAPTOP-4TIMG3M8
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: terraform-apply-dev
     environment: prod
     steps:
     - name: Checkout
