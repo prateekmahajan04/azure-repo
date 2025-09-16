@@ -10,7 +10,7 @@ terraform {
     resource_group_name  = "prateektfstatebackend"
     storage_account_name = "prateektfstatebackendstg" # must be globally unique
     container_name       = "tfstate"
-    key                  = "terraform.tfstate"
+    key                  = "dev.terraform.tfstate"
   }
 }
 

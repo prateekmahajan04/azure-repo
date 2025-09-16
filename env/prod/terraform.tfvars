@@ -1,6 +1,15 @@
+tags = {
+  Owner       = "Prateek"
+  Environment = "prod"
+}
+
 rg = {
-    rg1 = {
-        name = "prateekrg"
-        location = "eastus"
-    }
+  rg1 = {
+    name     = "prateekrg1"
+    location = "eastus"
+  }
+  rg2 = {
+    name     = "prateekrg2"
+    location = "eastus"
+  }
 }
