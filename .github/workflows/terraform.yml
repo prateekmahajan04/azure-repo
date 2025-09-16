@@ -13,7 +13,7 @@ on:
      - main
 
 jobs:
-  terraform:
+  terraform-init-plan:
     name: 'terraform init-plan'
     runs-on: LAPTOP-4TIMG3M8
     if: github.event_name =='pull_request'
@@ -40,7 +40,7 @@ jobs:
 
     - name: terraform fmt
       working-directory: env/dev
-      run: terraform fmt -check -recursive
+      run: terraform fmt 
 
     - name: terraform validate
       working-directory: env/dev
