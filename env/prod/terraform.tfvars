@@ -1,15 +1,14 @@
 tags = {
   Owner       = "Prateek"
-  Environment = "dev"
+  Environment = "prod"
 }
-
 rg = {
-  rg1 = {
-    name     = "prateekrg1"
+  rg3 = {
+    name     = "prateekrg3"
     location = "eastus"
   }
-  rg2 = {
-    name     = "prateekrg2"
+  rg4 = {
+    name     = "prateekrg4"
     location = "eastus"
   }
 }
