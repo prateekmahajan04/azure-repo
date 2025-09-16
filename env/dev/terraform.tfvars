@@ -8,5 +8,9 @@ rg = {
     name     = "prateekrg1"
     location = "eastus"
   }
+  rg3 = {
+    name     = "prateekrg3"
+    location = "eastus"
+  }
 }
 
