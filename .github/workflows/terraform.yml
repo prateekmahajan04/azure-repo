@@ -39,7 +39,7 @@ jobs:
 
     - name: terraform fmt
       working-directory: env/dev
-      run: terraform fmt
+      run: terraform fmt -check -recursive
 
     - name: terraform validate
       working-directory: env/dev
