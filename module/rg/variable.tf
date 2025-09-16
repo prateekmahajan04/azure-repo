@@ -1,4 +1,4 @@
-# variable "rg" {
-#   type = map(any)
-# }
+variable "rg" {
+  type = map(any)
+}
 

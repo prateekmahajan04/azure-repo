@@ -1,6 +1,6 @@
-# rg = {
-#   rg1 = {
-#     name     = "prateekrg"
-#     location = "eastus"
-#   }
-# }
+rg = {
+  rg1 = {
+    name     = "prateekrg"
+    location = "eastus"
+  }
+}
