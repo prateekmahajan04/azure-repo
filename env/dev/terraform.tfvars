@@ -1,10 +1,28 @@
-rg_count  = 5
-rg_prefix = "prateekrg"
-location  = "eastus"
+# --------------------
+# Resource Group
+# --------------------
+rg_count   = 1
+rg_prefix  = "prateekrg"
+rg_exclude = []
+location   = "eastus"
 
-# RG numbers to exclude (delete)
-rg_exclude = [3]
+# --------------------
+# Virtual Machine
+# --------------------
+vm_count    = 1
+vm_prefix   = "vm"
+vm_admin    = "azureuser"
+vm_password = "P@ssw0rd123"
 
+# --------------------
+# Network
+# --------------------
+vnet_address_space = "10.0.0.0/16"
+subnet_prefix      = "10.0.1.0/24"
+
+# --------------------
+# Tags
+# --------------------
 tags = {
   Owner       = "Prateek"
   Environment = "dev"
