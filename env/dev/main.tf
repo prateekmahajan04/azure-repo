@@ -2,7 +2,7 @@
 # 1️⃣ Resource Groups
 # --------------------
 module "rg" {
-  source = "../../modules/rg"
+  source =  "../../module/rg"
 
   rg = {
     for i in range(var.rg_count) :
@@ -19,7 +19,7 @@ module "rg" {
 # 2️⃣ Key Vault per RG
 # --------------------
 module "keyvault" {
-  source = "../../modules/kv"
+  source = "../../module/kv"
 
   for_each = module.rg.rg
 
@@ -36,7 +36,7 @@ module "keyvault" {
 # 3️⃣ Secrets per KV
 # --------------------
 module "vm_secret" {
-  source = "../../modules/secret"
+  source = "../../module/secret"
 
   for_each = module.keyvault
 
@@ -53,7 +53,7 @@ module "vm_secret" {
 # 4️⃣ Network Modules
 # --------------------
 module "vnet" {
-  source = "../../modules/vnet"
+  source = "../../module/vnet"
 
   for_each = module.rg.rg
 
@@ -68,7 +68,7 @@ module "vnet" {
 }
 
 module "subnet" {
-  source = "../../modules/subnet"
+  source = "../../module/subnet"
 
   for_each = module.vnet
 
@@ -83,7 +83,7 @@ module "subnet" {
 }
 
 module "nsg" {
-  source = "../../modules/nsg"
+  source = "../../module/nsg"
 
   for_each = module.rg.rg
 
@@ -97,7 +97,7 @@ module "nsg" {
 }
 
 module "pip" {
-  source = "../../modules/pip"
+  source = "../../module/pip"
 
   for_each = module.rg.rg
 
@@ -112,7 +112,7 @@ module "pip" {
 }
 
 module "nic" {
-  source = "../../modules/nic"
+  source = "../../module/nic"
 
   for_each = module.rg.rg
 
@@ -132,7 +132,7 @@ module "nic" {
 # 5️⃣ Virtual Machines
 # --------------------
 module "vm" {
-  source = "../../modules/vm"
+  source = "../../module/vm"
 
   for_each = module.nic
 
