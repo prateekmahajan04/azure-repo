@@ -15,9 +15,11 @@ resource "azurerm_network_interface" "nic" {
     }
   }
 
-  network_security_group_id = each.value.nsg_id
-
   lifecycle { prevent_destroy = true }
 }
 
-
+resource "azurerm_network_interface_security_group_association" "nic_nsg" {
+  for_each                  = var.nic_map
+  network_interface_id      = azurerm_network_interface.nic[each.key].id
+  network_security_group_id = each.value.nsg_id
+}

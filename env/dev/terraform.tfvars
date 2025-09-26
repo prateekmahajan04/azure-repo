@@ -1,5 +1,5 @@
 # --------------------
-# Resource Group
+# Resource Groups
 # --------------------
 rg_count   = 1
 rg_prefix  = "prateekrg"
@@ -7,7 +7,7 @@ rg_exclude = []
 location   = "eastus"
 
 # --------------------
-# Virtual Machine
+# Virtual Machines
 # --------------------
 vm_count    = 1
 vm_prefix   = "vm"
@@ -27,3 +27,8 @@ tags = {
   Owner       = "Prateek"
   Environment = "dev"
 }
+
+# --------------------
+# Boot diagnostics (optional)
+# --------------------
+boot_diagnostics_storage_uri = ""  # agar storage account diagnostic ke liye chahiye to URI daalna

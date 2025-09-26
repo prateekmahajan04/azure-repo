@@ -19,7 +19,7 @@ module "rg" {
 # 2️⃣ Key Vault per RG
 # --------------------
 module "keyvault" {
-  source = "../../modules/keyvault"
+  source = "../../modules/kv"
 
   for_each = module.rg.rg
 
